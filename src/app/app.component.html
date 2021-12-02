@@ -1,0 +1,39 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 px-4">
+        <h4>Angular State Management using NgRx</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 py-4">
+        <div class="card p-4 shadow-sm">
+          <form #myform="ngForm" (ngSubmit)="addCountry(myform)">
+            <div class="form-group">
+              <label for="name">Identity</label>
+              <input type="text" class="form-control" ngModel name="id" id="id" aria-describedby="name" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Country Name</label>
+              <input type="text" class="form-control" ngModel name="name" id="name" aria-describedby="name" required>
+            </div>
+            <div class="form-group">
+              <label for="department">Short Name</label>
+              <input type="text" class="form-control" ngModel name="shortName" id="shortName" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 py-4">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let country of countryItems$ | async">
+            {{country.name}}: <b>{{country.shortName}}</b>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
